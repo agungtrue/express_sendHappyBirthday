@@ -33,11 +33,8 @@ app.use(routers);
 
 // start get birthday users
 getBirthdayUsers({messageEvent: 'it’s your birthday.'});
-// getBirthdayUsers({messageEvent: 'Happy new year.'}); // if we want to make another services of email/notif, we can ma few args
 
 // getFailedSendBirthdayUsers init
 getFailedSendBirthdayUsers({messageEvent: 'it’s your birthday.'}); // resend
-// getFailedSendBirthdayUsers({messageEvent: 'Happy new year.'});
-
 
 module.exports = app;
