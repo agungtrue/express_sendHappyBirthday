@@ -6,7 +6,7 @@ const { getSplitOfDOB } = require('../services/getSplitOfDOB');
 exports.createOne = async (req, res, next) => {
     try {
         // split the birthday string
-        const dobObj = getSplitOfDOB(req.body);
+        const dobObj = getSplitOfDOB(req.body.birthdayDate);
 
         // merging the obj and save
         const newUser = await User.create({...req.body, dob_obj: dobObj});
@@ -47,7 +47,7 @@ exports.updateUser = async (req, res, next) => {
         const body = req.body;
 
         // split the birthday string
-        const dobObj = getSplitOfDOB(body);
+        const dobObj = getSplitOfDOB(body.birthdayDate);
 
         // get value for dobObj and update the record
         const user = await User.findByIdAndUpdate(id, {...body, dob_obj: dobObj}, {

@@ -16,7 +16,7 @@ module.exports = getBirthdayUsers = ({ messageEvent }) => {
 
                 whoseBirthdayToday.forEach((user) => {
                     const userBirthMonth = getNameOfMonth(user.birthdayDate);
-                    const { date: userBirthDate } = getSplitOfDOB(user);
+                    const { date: userBirthDate } = getSplitOfDOB(user.birthdayDate);
 
                     // args for user schedule
                     const userScheduledBirth = {
