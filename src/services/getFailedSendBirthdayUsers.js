@@ -26,9 +26,9 @@ module.exports = getFailedSendBirthdayUsers = ({ messageEvent }) => {
 
                 // args for user schedule
                 const userScheduledBirth = {
-                    minute: '21',
-                    hour: '7',
-                    dayOfMonth: userBirthDate,
+                    minute: '0',
+                    hour: '9',
+                    dayOfMonth: String(Number(userBirthDate) + 1), // next day
                     month: userBirthMonth,
                     emailLog,
                     messageEvent

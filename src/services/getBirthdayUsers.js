@@ -20,8 +20,8 @@ module.exports = getBirthdayUsers = ({ messageEvent }) => {
 
                     // args for user schedule
                     const userScheduledBirth = {
-                        minute: '16',
-                        hour: '7',
+                        minute: '0',
+                        hour: '9',
                         dayOfMonth: userBirthDate,
                         month: userBirthMonth,
                         user,
