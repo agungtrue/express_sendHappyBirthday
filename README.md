@@ -1,0 +1,2 @@
+- to enable and disable function, go into app.js 'src/app.js'
+- most the logic or 'src/services', and sure in 'src/controller'
