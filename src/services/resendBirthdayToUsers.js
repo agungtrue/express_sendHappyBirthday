@@ -27,12 +27,10 @@ module.exports = resendBirthdayToUsers = ({
             console.info({ emailLog });
     
             // send back email with those data selected
-            // const sendBack = await sendEmail(emailLog.user, emailLog.emailBody);
             const sendBack = await sendEmail({user: emailLog.user, emailBody: emailLog.emailBody, messageEvent});
 
-
             // remove existing data that already label as failed into send
-            //  since in sendEmail() function, we create new record for log
+            // since in sendEmail() function, we create new record for log
             if (sendBack) await updateFailedSendEmail(emailLog);
             console.info({ sendBack })
         } catch (err) {

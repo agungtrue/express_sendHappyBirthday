@@ -13,8 +13,11 @@ module.exports = sendBirthdayToUsers = ({
     month,
     dayOfWeek,
 }) => {
-    // sends a message once a year to our friend on their birthday 
-    // nodeCron.schedule("0 11 17 April *", () => {})
+    console.info(
+        'args...',
+        `${second || '0'} ${minute || '0'} ${hour || '*'} ${dayOfMonth || '*'} ${month || '*'} ${dayOfWeek || '*'}`,
+        { user }
+    );
 
     // snend to user with specific date based on user local time
     nodeCron.schedule(
@@ -23,11 +26,6 @@ module.exports = sendBirthdayToUsers = ({
         try {
             console.info('________________________________________________________________________');
             console.info('start send to user...');
-            console.info(
-                'args...',
-                `${second || '0'} ${minute || '0'} ${hour || '*'} ${dayOfMonth || '*'} ${month || '*'} ${dayOfWeek || '*'}`
-            );
-            console.info({ user });
             
             // send email
             await sendEmail({ user, messageEvent });
