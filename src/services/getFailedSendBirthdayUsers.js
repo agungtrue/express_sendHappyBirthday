@@ -17,18 +17,17 @@ module.exports = getFailedSendBirthdayUsers = ({ messageEvent }) => {
 
             failedSendEmail.forEach(async (emailLog) => {
 
-                // grab user obj
-                const { user } = emailLog;
-
                 // get proper value for schedule args
-                const userBirthMonth = getNameOfMonth(user.birthdayDate);
-                const { date: userBirthDate } = getSplitOfDOB(user);
+                // and add 1 days for resend email/recover (current logic)
+                const userBirthMonthNextDays = moment(emailLog.createdAt).add(1, 'days').format().split('T')[0];
+                const userBirthMonth = getNameOfMonth(userBirthMonthNextDays);
+                const { date: userBirthDate } = getSplitOfDOB(userBirthMonthNextDays);
 
                 // args for user schedule
                 const userScheduledBirth = {
                     minute: '0',
                     hour: '9',
-                    dayOfMonth: String(Number(userBirthDate) + 1), // next day
+                    dayOfMonth: userBirthDate,
                     month: userBirthMonth,
                     emailLog,
                     messageEvent

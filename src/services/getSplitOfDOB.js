@@ -1,5 +1,5 @@
 
-exports.getSplitOfDOB = ({ birthdayDate }) => {
+exports.getSplitOfDOB = (birthdayDate) => {
     // split the birthday string
     const splitDate = birthdayDate.split('-');
 
